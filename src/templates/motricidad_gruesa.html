@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurokid</title>
+     <style>
+      body {
+            font-family: 'Serif', Times, serif; /* Tipo de letra */
+            background-color: #57b6eb;
+        }
+
+        /* Estilo para el título */
+        h1 {
+            text-align: center;
+        }
+
+        /* Estilo para el formulario */
+        form {
+            width: 30%; /* Ancho del formulario */
+            float: left; /* Hace que el formulario flote a la izquierda */
+        }
+
+        /* Estilo para la imagen */
+        img {
+            width: 60%; /* Ancho de la imagen */
+            float: right; /* Hace que la imagen flote a la derecha */
+        }
+
+        /* Aseguramos que el formulario y la imagen no se solapen */
+        .clear {
+            clear: both; /* Esto evita que los elementos flotantes se solapen */
+        }
+
+        /* Estilo para el pie de página */
+        footer {
+            clear: both; /* Asegura que el pie de página no esté junto a elementos flotantes */
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+ </style>
+
+</head>
+<body>
+   <h1>Motricidad gruesa</h1>
+   <img src="https://img.freepik.com/vector-gratis/plantilla-etiqueta-personaje-dibujos-animados-nino-aislado_1308-65318.jpg?t=st=1732761152~exp=1732764752~hmac=6109a7ba54516a87fe1f414b393db1068c29e6adde495372e3ea1ed0b3e9a2c7&w=360">
+   <form method="POST" action="/continuar">
+<table>
+  <tr>
+    <th>Items de Evaluación</th>
+    <th>Si</th>
+    <th>No</th>
+  </tr>
+  {% for i in range(rangop*3): %}
+  <tr>
+    <td>
+      <label for="html">{{lista[i]}}</label><br>
+    </td>
+    <td>
+      <input type="radio" id="mg{{ i }}" name="mg{{ i }}" value="Si" checked>
+    </td>
+    <td>
+      <input type="radio" id="mg{{ i }}" name="mg{{ i }}" value="No">
+    </td>
+  </tr>
+{% endfor %}
+    {%if rangop<12:%}
+    {% for i in range(rangop*3,36) %}
+  <tr>
+    <td>
+      <label for="html">{{lista[i]}}</label><br>
+    </td>
+    <td>
+      <input type="radio" id="mg{{ i }}" name="mg{{ i }}" value="Si">
+    </td>
+    <td>
+      <input type="radio" id="mg{{ i }}" name="mg{{ i }}" value="No">
+    </td>
+  </tr>
+{% endfor %}
+    {% endif %}
+</table>
+
+ <a href="/continuar">
+        <button type="submit">Continuar</button>
+    </a>
+  </form>
+    <footer>
+        <p>&copy; 2024 Neurokid - Evaluación de Neurodesarrollo Infantil</p>
+        <p>Diseñado por Kimberly Carolina Morales Muñoz,
+Medica y cirujana,
+Pediatra,
+Estudiante cuarto semestre Maestría Informatica Biomédica, kcmorales@unbosque.edu.co
+</p>
+<p>Dirigido por Wanderley Augusto Arias,
+Doctorando en Salud Pública,
+Maestrante en Inteligencia Artificial,
+Magister en epidemiología,
+Especialista en Estadística Aplicada,
+Especialista en Docencia Universitaria, waarias@unbosque.edu.co
+</p>
+<p>Desarrollado por Jhon López,
+Ingeniero de Sistemas y Computación, jalopezfa@unal.edu.co </p>
+    </footer></body></html>

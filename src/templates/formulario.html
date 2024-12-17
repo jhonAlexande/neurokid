@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurokid</title>
+    <style>
+        body {
+            font-family: 'Serif', Times, serif; /* Tipo de letra */
+            background-color: #57b6eb;
+        }
+
+        /* Estilo para el título */
+        h1 {
+            text-align: center;
+        }
+
+        /* Estilo para el formulario */
+        form {
+            width: 30%; /* Ancho del formulario */
+            float: left; /* Hace que el formulario flote a la izquierda */
+        }
+
+        /* Estilo para la imagen */
+        img {
+            width: 60%; /* Ancho de la imagen */
+            float: right; /* Hace que la imagen flote a la derecha */
+        }
+
+        /* Aseguramos que el formulario y la imagen no se solapen */
+        .clear {
+            clear: both; /* Esto evita que los elementos flotantes se solapen */
+        }
+
+        /* Estilo para el pie de página */
+        footer {
+            clear: both; /* Asegura que el pie de página no esté junto a elementos flotantes */
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Datos del Niño o la Niña</h1>
+    <img src="https://staticnew-prod.topdoctors.mx/files/Image/large/bb11f094d72b8ba1a4ac58241721dc2e.jpg" alt="Imagen ilustrativa">
+
+    <form method="POST" action="/submit">
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+        <div style="text-align: center;">
+            <table border="1">
+                <tr>
+                    <th>Género</th>
+                    <th>Masculino</th>
+                    <th>Femenino</th>
+                </tr>
+                <tr>
+                    <td><label>Género</label><br></td>
+                    <td><input type="radio" id="genero1" name="genero" value="Masculino" checked></td>
+                    <td><input type="radio" id="genero" name="genero" value="Femenino"></td>
+                </tr>
+                <tr>
+                    <th>Semanas Corregidas</th>
+                    <th>Si</th>
+                    <th>No</th>
+                </tr>
+                <tr>
+                    <td><label for="html">El niño fue bebé prematuro?</label><br></td>
+                    <td><input type="radio" id="prematuro" name="prematuro" value="Si"></td>
+                    <td><input type="radio" id="prematuro" name="prematuro" value="No" checked></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+
+        <label for="edad_corregida">Semanas faltantes:</label>
+        <input type="number" id="edad_corregida" name="edad_corregida" value="0" required><br><br>
+
+        <label for="fecha_evaluacion">Fecha de Evaluación:</label>
+        <input type="date" id="fecha_evaluacion" name="fecha_evaluacion" required><br><br>
+            <script>
+        // Obtener la fecha actual
+        const hoy = new Date();
+
+        // Formatear la fecha en formato YYYY-MM-DD
+        const fechaActual = hoy.toISOString().split('T')[0];
+
+        // Establecer la fecha actual como valor por defecto
+        document.getElementById('fecha_evaluacion').value = fechaActual;
+    </script>
+
+        <label for="id_evaluador">Id Evaluador:</label>
+        <input type="text" id="id_evaluador" name="id_evaluador" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div class="clear"></div> <!-- Esto asegura que los elementos flotantes no afecten el footer -->
+
+    <footer>
+        <p>&copy; 2024 Neurokid - Evaluación de Neurodesarrollo Infantil</p>
+        <p>Diseñado por Kimberly Carolina Morales Muñoz, Medica y Cirujana, Pediatra, Estudiante cuarto semestre Maestría Informatica Biomédica, kcmorales@unbosque.edu.co</p>
+        <p>Dirigido por Wanderley Augusto Arias, Doctorando en Salud Pública, Maestrante en Inteligencia Artificial, Magister en Epidemiología, Especialista en Estadística Aplicada, Especialista en Docencia Universitaria, waarias@unbosque.edu.co</p>
+        <p>Desarrollado por Jhon López, Ingeniero de Sistemas y Computación, jalopezfa@unal.edu.co</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroKid</title>
+    <style>
+        /* Reset de algunos estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff07f;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header con el logo y el menú */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+nav.menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav.menu ul li {
+    margin-left: 20px;
+}
+
+nav.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav.menu ul li a:hover {
+    color: #cfcfcf;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para las secciones */
+main {
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Estilo para el semáforo */
+
+.semaforo {
+    display: inline-block;
+    background-color: #333;
+    width: 100px;
+    height: 280px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.luz {
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
+    border-radius: 50%;
+    background-color: gray; /* Color apagado por defecto */
+}
+
+.rojo {
+    background-color: red;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.verde {
+    background-color: green;
+}
+
+.gris {
+    background-color: gray;
+}
+/* Estilo para el pie de página */
+        footer {
+            clear: both; /* Asegura que el pie de página no esté junto a elementos flotantes */
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+/* Responsive: Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    nav.menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav.menu ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>NeuroKid - Resultados de Evaluación de Neurodesarrollo</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#contacto">Información</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="resultados">
+            <h2>Tabla de Resultados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Esfera Evaluada</th>
+                        <th>Semaforo</th>
+                        <th>Resultado</th>
+                        <th>Observación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Motricidad Gruesa</td>
+                        <td>
+                            <div class="semaforo">
+            <div class="luz {% if semaforo[0] == 'rojo' %}rojo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[0] == 'amarillo' %}amarillo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[0] == 'verde' %}verde{% else %}gris{% endif %}"></div>
+        </div>
+                        </td>
+                        <td>{{semaforo[0]}}</td>
+
+                        <td>{% if semaforo[0] == 'verde' %}
+        El niño tiene un desarrollo esperado para la edad.
+        {% elif semaforo[0] == 'amarillo' %}
+        Riesgo de problemas en desarrollo.
+        {% elif semaforo[0] == 'rojo' %}
+        Sospecha de problemas del desarrollo.
+        {% elif semaforo[0] == 'nulo' %}
+        No fue posible asignar un valor (rojo, amarillo, verde) por favor revise los datos ingresados.
+        {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Motricidad Fino-adaptativa</td>
+                        <td>
+                            <div class="semaforo">
+            <div class="luz {% if semaforo[1] == 'rojo' %}rojo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[1] == 'amarillo' %}amarillo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[1] == 'verde' %}verde{% else %}gris{% endif %}"></div>
+        </div>
+                        </td>
+                        <td>{{semaforo[1]}}</td>
+                        <td>{% if semaforo[1] == 'verde' %}
+        El niño tiene un desarrollo esperado para la edad.
+        {% elif semaforo[1] == 'amarillo' %}
+        Riesgo de problemas en desarrollo.
+        {% elif semaforo[1] == 'rojo' %}
+        Sospecha de problemas del desarrollo.
+        {% elif semaforo[1] == 'nulo' %}
+        No fue posible asignar un valor (rojo, amarillo, verde) por favor revise los datos ingresados.
+        {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Audición Lenguaje</td>
+                        <td>
+                            <div class="semaforo">
+            <div class="luz {% if semaforo[2] == 'rojo' %}rojo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[2] == 'amarillo' %}amarillo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[2] == 'verde' %}verde{% else %}gris{% endif %}"></div>
+        </div>
+                        </td>
+                        <td>{{semaforo[2]}}</td>
+                        <td>{% if semaforo[2] == 'verde' %}
+        El niño tiene un desarrollo esperado para la edad.
+        {% elif semaforo[2] == 'amarillo' %}
+        Riesgo de problemas en desarrollo.
+        {% elif semaforo[2] == 'rojo' %}
+        Sospecha de problemas del desarrollo.
+        {% elif semaforo[2] == 'nulo' %}
+        No fue posible asignar un valor (rojo, amarillo, verde) por favor revise los datos ingresados.
+        {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Social</td>
+                        <td>
+             <div class="semaforo">
+            <div class="luz {% if semaforo[3] == 'rojo' %}rojo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[3] == 'amarillo' %}amarillo{% else %}gris{% endif %}"></div>
+            <div class="luz {% if semaforo[3] == 'verde' %}verde{% else %}gris{% endif %}"></div>
+        </div>
+                        </td>
+                        <td>{{semaforo[3]}}</td>
+                        <td>{% if semaforo[3] == 'verde' %}
+        El niño tiene un desarrollo esperado para la edad.
+        {% elif semaforo[3] == 'amarillo' %}
+        Riesgo de problemas en desarrollo.
+        {% elif semaforo[3] == 'rojo' %}
+        Sospecha de problemas del desarrollo.
+        {% elif semaforo[3] == 'nulo' %}
+        No fue posible asignar un valor (rojo, amarillo, verde) por favor revise los datos ingresados.
+        {% endif %}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contacto">
+            <h2>Información de todo el Proceso de Evaluación de Neurodesarrollo</h2>
+            <p>A continuación encontrarás toda la inormación de este proceso de evaluación en un formato de interoperabilidad entre aplicaciones denominado JSON. Por favor copialo y envialo por correo a kcmorales@unbosque.edu.co para que pueda incluirla en los resultados de la presente investigación. Muchas gracias por tu colaboración</p>
+            <br>
+            <p>{{semaforo[4]}}</p>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Neurokid - Evaluación de Neurodesarrollo Infantil</p>
+        <p>Diseñado por Kimberly Carolina Morales Muñoz,
+Medica y cirujana,
+Pediatra,
+Estudiante cuarto semestre Maestría Informatica Biomédica, kcmorales@unbosque.edu.co
+</p>
+<p>Dirigido por Wanderley Augusto Arias,
+Doctorando en Salud Pública,
+Maestrante en Inteligencia Artificial,
+Magister en epidemiología,
+Especialista en Estadística Aplicada,
+Especialista en Docencia Universitaria, waarias@unbosque.edu.co
+</p>
+<p>Desarrollado por Jhon López,
+Ingeniero de Sistemas y Computación, jalopezfa@unal.edu.co </p>
+    </footer>
+</body>
+</html>

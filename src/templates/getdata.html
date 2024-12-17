@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurokids</title>
+</head>
+<form action="getdata" method="POST">
+<label>Id Niño/Niña <input type="text" id="id" name="id" required/></label><br><br>
+<label>Nombre <input type="text" id="nombre" name="nombre" required/></label><br><br>
+<label>Edad <input type="number" id="edad" name="edad" required/></label><br><br>
+<label>Fecha de Nacimiento <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required/></label><br><br>
+<div style="border: 1pt solid #FFFF; text-align: center;">
+  <table border="1" align=center>
+    <tr>
+      <th>Género</th>
+      <th>Masculino</th>
+      <th>Femenino</th>
+    </tr>
+    <tr>
+      <td>
+        <label>Género</label><br>
+      </td>
+      <td>
+        <input type="radio" id="genero1" name="genero" value="Masculino">
+      </td>
+      <td>
+        <input type="radio" id="genero" name="genero" value="Femenino">
+      </td>
+    </tr>
+      <tr>
+        <th>Semanas Corregidas</th>
+        <th>Si</th>
+        <th>No</th>
+      </tr>
+    <br>
+      <tr>
+        <td>
+          <label for="html">El niño fue bebé prematuro?</label><br>
+        </td>
+        <td>
+          <input type="radio" id="prematuro" name="prematuro" value="Si">
+        </td>
+        <td>
+          <input type="radio" id="prematuro" name="prematuro" value="No">
+        </td>
+      </tr>
+    <br>
+  </table>
+</div>
+  <br>
+
+
+<label>Edad Corregida (semanas) <input type="number" id="edad-corregida" name="edad-corregida" required/></label><br><br>
+<label>Fecha de Evaluacion <input type="date" id="fecha-evaluacion" name="fecha-evaluacion" required/></label><br><br><br>
+<label>Id Evaluador <input type="text" id="id-evaluador" name="id-evaluador" required/></label><br><br>
+  <a href="motricidad_gruesa">
+        <button type="button" name="Enviar" onclick="getdata">Enviar</button>
+    </a>
+  </form></body></html>

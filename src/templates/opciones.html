@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Radio Buttons</title>
+</head>
+<body>
+
+<h1>Selecciona una opción</h1>
+
+<form action="/" method="POST">
+    {% for opcion in opciones %}
+        <label>
+            <input type="radio" name="opcion" value="{{ opcion }}"
+            {% if valor_seleccionado == opcion %}checked{% endif %}>
+            {{ opcion.capitalize() }}
+        </label><br>
+    {% endfor %}
+
+    <button type="submit">Enviar</button>
+</form>
+
+<h2>Valor seleccionado: {{ valor_seleccionado }}</h2>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo Controlado por Flask</title>
+    <style>
+        .semaforo {
+            width: 100px;
+            height: 300px;
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .luz {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: gray;
+            transition: background-color 0.5s;
+        }
+        .luz.rojo {
+            background-color: red;
+        }
+        .luz.amarillo {
+            background-color: yellow;
+        }
+        .luz.verde {
+            background-color: green;
+        }
+        .luz.apagado {
+            background-color: gray;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Semáforo Controlado por Flask</h1>
+
+<div class="semaforo">
+    <div id="rojo" class="luz"></div>
+    <div id="amarillo" class="luz"></div>
+    <div id="verde" class="luz"></div>
+</div>
+
+<button onclick="cambiarEstado('rojo')">Rojo</button>
+<button onclick="cambiarEstado('amarillo')">Amarillo</button>
+<button onclick="cambiarEstado('verde')">Verde</button>
+
+<script>
+    function cambiarEstado(estado) {
+        fetch(`/cambiar_estado/${estado}`)
+            .then(response => response.json())
+            .then(data => {
+                actualizarSemaforo(data.estado);
+            });
+    }
+
+    function actualizarSemaforo(estado) {
+        // Apagar todas las luces
+        document.getElementById('rojo').classList.remove('rojo');
+        document.getElementById('amarillo').classList.remove('amarillo');
+        document.getElementById('verde').classList.remove('verde');
+
+        document.getElementById('rojo').classList.add(estado === 'rojo' ? 'rojo' : 'apagado');
+        document.getElementById('amarillo').classList.add(estado === 'amarillo' ? 'amarillo' : 'apagado');
+        document.getElementById('verde').classList.add(estado === 'verde' ? 'verde' : 'apagado');
+    }
+
+    // Obtener el estado actual del semáforo cuando se carga la página
+    window.onload = function() {
+        fetch('/estado_semaforo')
+            .then(response => response.json())
+            .then(data => {
+                actualizarSemaforo(data.estado);
+            });
+    };
+</script>
+
+</body>
+</html>

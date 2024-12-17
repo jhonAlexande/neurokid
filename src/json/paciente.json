@@ -1,0 +1,54 @@
+{"paciente":{
+  "id": "1234",
+  "nombre": "nombre",
+  "edad": 5,
+  "edad-semanas": 120,
+  "edad-meses": 60,
+  "fecha-nacimiento": "2020-01-01",
+  "sexo": "M",
+  "es-prematuro": false,
+  "semanas-faltantes": 15,
+  "edad-corregida": 10,
+  "rango":12,
+  "rangomg": 12,
+  "rangomf": 12,
+  "rangoal": 12,
+  "rangops": 12,
+  "fecha-evaluacion": "2020-01-01",
+  "id-evaluador": "1234",
+  "listas": {
+    "mglist":[],
+    "mflist":[],
+    "allist":[],
+    "pslist":[]
+},
+  "puntos-corte":{
+    "mgpi":12,
+    "mgpc":20,
+    "mfpi":12,
+    "mfpc":20,
+    "alpi":12,
+    "alpc":20,
+    "pspi":12,
+    "pspc":20
+},
+  "puntuaciones":{
+    "pdmg":36,
+    "ptmg":300,
+    "pdmf":36,
+    "ptmf":300,
+    "pdal":36,
+    "ptal":300,
+    "pdps":36,
+    "ptps":300
+  },
+
+  "semaforos": {
+    "semaforo_mg":"verde",
+    "semaforo_mf": "verde",
+    "semaforo_al": "verde",
+    "semaforo_ps": "verde"
+  }
+
+}
+}
